@@ -105,15 +105,15 @@ This feature ensures that server administrators are promptly notified of potenti
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/PluginAnalyse.git
+   git clone https://github.com/PublicCode1337/PluginAnalyse.git
    ```
 2. Navigate to the project directory:
    ```sh
    cd PluginAnalyse
    ```
-3. Build the plugin using Maven:
+3. Build the plugin using Gradle:
    ```sh
-   mvn clean package
+   build.gradle
    ```
 4. The compiled `.jar` file will be located in the `build/libs/` directory.
 
