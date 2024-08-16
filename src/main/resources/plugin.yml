@@ -1,6 +1,8 @@
 name: PluginAnalyse
 version: 1.0-SNAPSHOT
 main: de.hackv0gel.pluginAnalyse.PluginAnalyse
+author: HackV0gel
+website: https://durchlasten.world
 commands:
   analyse:
     description: Analyzes packets

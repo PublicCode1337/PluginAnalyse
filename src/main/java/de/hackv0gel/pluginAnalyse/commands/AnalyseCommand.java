@@ -1,11 +1,12 @@
 package de.hackv0gel.pluginAnalyse.commands;
 
 import de.hackv0gel.pluginAnalyse.PluginAnalyse;
+import de.hackv0gel.pluginAnalyse.utils.ChatUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.entity.Player;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,11 +24,16 @@ public class AnalyseCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage("Usage: /analyse <view|clear|checkethanol>.");
+            ChatUtil.unknownCommand((Player) sender);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("view")) {
+            if (!sender.hasPermission("analyse.viewlogs")) {
+                executeCreditsCommand(sender);
+                return true;
+            }
+
             try {
                 List<String> logLines = Files.readAllLines(Paths.get(plugin.getDataFolder() + "/packets_log.txt"));
                 if (logLines.isEmpty()) {
@@ -39,24 +45,34 @@ public class AnalyseCommand implements CommandExecutor {
                     }
                 }
             } catch (IOException e) {
-                sender.sendMessage("Error reading the log file.");
+                sender.sendMessage(ChatColor.RED + "Error reading the log file.");
                 e.printStackTrace();
             }
             return true;
         }
 
         if (args[0].equalsIgnoreCase("clear")) {
+            if (!sender.hasPermission("analyse.clearlogs")) {
+                executeCreditsCommand(sender);
+                return true;
+            }
+
             try {
                 Files.write(Paths.get(plugin.getDataFolder() + "/packets_log.txt"), new byte[0]);
-                sender.sendMessage("Log file cleared.");
+                ChatUtil.clearLogfileSucess((Player) sender);
             } catch (IOException e) {
-                sender.sendMessage("Error clearing the log file.");
+                sender.sendMessage(PluginAnalyse.Instance.Prefix + "§cError clearing the log file.");
                 e.printStackTrace();
             }
             return true;
         }
 
         if (args[0].equalsIgnoreCase("checkethanol")) {
+            if (!sender.hasPermission("analyse.checkethanol")) {
+                executeCreditsCommand(sender);
+                return true;
+            }
+
             if (plugin.getConfig().getBoolean("block-ethanol", false)) {
                 try {
                     List<String> logLines = Files.readAllLines(Paths.get(plugin.getDataFolder() + "/packets_log.txt"));
@@ -64,23 +80,27 @@ public class AnalyseCommand implements CommandExecutor {
                     for (String line : logLines) {
                         if (line.contains("ethanol.rocks") || line.contains("84.252.120.172")) {
                             ethanolDetected = true;
-                            sender.sendMessage(ChatColor.RED + "Ethanol connection found: " + line);
+                            sender.sendMessage(PluginAnalyse.Instance.Prefix + "§4Ethanol connection found: " + line);
                         }
                     }
                     if (!ethanolDetected) {
-                        sender.sendMessage(ChatColor.GREEN + "No connections to Ethanol servers found.");
+                        ChatUtil.noEthanolConnections((Player) sender);
                     }
                 } catch (IOException e) {
-                    sender.sendMessage("Error reading the log file.");
+                    ChatUtil.errorreadlogfile((Player) sender);
                     e.printStackTrace();
                 }
             } else {
-                sender.sendMessage(ChatColor.YELLOW + "Ethanol blocking is disabled.");
+                ChatUtil.ethanolBlockdis((Player) sender);
             }
-            return true;
         }
 
-        sender.sendMessage("§cUnknown command. §3Usage: /analyse <view|clear|checkethanol>.");
+        ChatUtil.unknownCommand((Player) sender);
         return true;
+    }
+
+    private void executeCreditsCommand(CommandSender sender) {
+        plugin.getServer().dispatchCommand(sender, "analyse-credits");
+
     }
 }

@@ -15,9 +15,14 @@ import java.net.ProxySelector;
 public final class PluginAnalyse extends JavaPlugin {
 
     private BufferedWriter writer;
+    public static PluginAnalyse Instance;
+
+    public String Version = "1.3";
+    public String Prefix = "§9§lPlugin§b§lAnalyse ";
 
     @Override
     public void onEnable() {
+        Instance = this;
         saveDefaultConfig();
 
         try {
