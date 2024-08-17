@@ -1,6 +1,6 @@
 # PluginAnalyse
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Version](https://img.shields.io/badge/version-1.3-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Version](https://img.shields.io/badge/version-1.4-blue.svg)
 
 **PluginAnalyse** is a Minecraft Bukkit/Spigot plugin designed to monitor and analyze network traffic in real-time. It provides server administrators with powerful tools to view, clear, and check connections, particularly for identifying connections related to specific domains or IPs, such as "ethanol.rocks". The plugin also includes permissions-based controls to ensure only authorized users can perform certain actions.
 
@@ -105,15 +105,15 @@ This feature ensures that server administrators are promptly notified of potenti
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/PluginAnalyse.git
+   git clone https://github.com/PublicCode1337/PluginAnalyse.git
    ```
 2. Navigate to the project directory:
    ```sh
    cd PluginAnalyse
    ```
-3. Build the plugin using Maven:
+3. Build the plugin using Gradle:
    ```sh
-   mvn clean package
+   build.gradle
    ```
 4. The compiled `.jar` file will be located in the `build/libs/` directory.
 
