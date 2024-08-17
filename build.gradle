@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'de.hackv0gel'
-version = '1.3'
+version = '1.4'
 
 repositories {
     mavenCentral()

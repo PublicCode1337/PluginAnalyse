@@ -17,8 +17,8 @@ public final class PluginAnalyse extends JavaPlugin {
     private BufferedWriter writer;
     public static PluginAnalyse Instance;
 
-    public String Version = "1.3";
-    public String Prefix = "§9§lPlugin§b§lAnalyse ";
+    public String Version = "1.4";
+    public String Prefix = "§9§lPlugin§b§lAnalyse §7»§r ";
 
     @Override
     public void onEnable() {

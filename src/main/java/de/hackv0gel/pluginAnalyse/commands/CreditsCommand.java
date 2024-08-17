@@ -20,7 +20,7 @@ public class CreditsCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         String creditsMessage = ChatColor.GOLD + "=== Plugin Credits ===\n" +
                 "§6Developer: §aHackv0gel\n" +
-                "§6Version: §a1.0\n" +
+                "§6Version: " + PluginAnalyse.Instance.Version + "\n" +
                 "§6Description: §aAnalyse Connections from all Plugins!\n" +
                 "§7Download: https://github.com/PublicCode1337/PluginAnalyse\n" +
                 "§dThanks for using this Plugin <3";
