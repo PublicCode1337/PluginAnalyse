@@ -15,7 +15,7 @@
 ## Download
 
 ### Stable Release
-[GitHub](https://github.com/PublicCode1337/PluginAnalyse/releases/tag/Minecraft)
+[GitHub](https://github.com/PublicCode1337/PluginAnalyse/releases/tag/PluginAnalyse1.4)
 ### Beta Release
 [GitHub](https://github.com/PublicCode1337/PluginAnalyse/releases/tag/Beta) 
 
