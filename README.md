@@ -1,6 +1,6 @@
 # PluginAnalyse
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Version](https://img.shields.io/badge/version-1.3-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Version](https://img.shields.io/badge/version-1.4-blue.svg)
 
 **PluginAnalyse** is a Minecraft Bukkit/Spigot plugin designed to monitor and analyze network traffic in real-time. It provides server administrators with powerful tools to view, clear, and check connections, particularly for identifying connections related to specific domains or IPs, such as "ethanol.rocks". The plugin also includes permissions-based controls to ensure only authorized users can perform certain actions.
 
