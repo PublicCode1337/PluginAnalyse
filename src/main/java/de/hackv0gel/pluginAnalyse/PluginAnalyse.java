@@ -40,7 +40,7 @@ public final class PluginAnalyse extends JavaPlugin {
             ProxySelector.setDefault(new ConnectionListener(this));
 
             if (getConfig().getBoolean("block-ethanol", false)) {
-                getLogger().warning("Ethanol blocking is enabled.");
+                getLogger().warning("Ethanol blocking is disabled.");
             }
         } catch (IOException e) {
             getLogger().log(Level.SEVERE, "Could not create log file!", e);
